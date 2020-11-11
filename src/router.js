@@ -3,6 +3,8 @@ const resourcesHandler = require("./handlers/resourcesHandler");
 const getCarHandler = require("./handlers/getCarHandler").getCarHandler;
 const missingHandler = require("./handlers/missingHandler");
 const getMakesHandler = require("./handlers/getMakesHandler");
+const getModelsHandler = require("./handlers/getModelsHandler");
+const getCarByHandler = require("./handlers/getCarByHandler");
 
 function router(request, response) {
   const url = request.url;
@@ -23,6 +25,10 @@ function router(request, response) {
     getCarHandler(request, response);
   } else if (url == "/getMakes") {
     getMakesHandler(request, response);
+  } else if (url.startsWith("/getModels?")) {
+    getModelsHandler(request, response);
+  } else if (url.startsWith("/getCarBy?")) {
+    getCarByHandler(request, response);
   } else {
     missingHandler(request, response);
   }

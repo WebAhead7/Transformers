@@ -4,6 +4,7 @@ let wantedSize = 7;
 let grappedDataIsUpdated = true;
 // home url, change it on deployment ...
 const homeUrl = "https://trans-formers.herokuapp.com/";
+// const homeUrl = "http://localhost:3000/";
 
 //grapping HTML elements
 const form = document.querySelector("form");
@@ -62,7 +63,6 @@ input.addEventListener("keyup", (e) => {
       return response.json();
     })
     .then((data) => {
-
       if (data.length !== 0) {
         updateCarListOptions(data);
         grappedData = data;
